@@ -88,11 +88,61 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: "light",
         links: [
-
+          {
+            title: "Connect",
+            items: [
+              {
+                label: "Email me",
+                href: "mailto:pawel@kosiec.dev",
+              },
+              // {
+              //   label: "github",
+              //   href: "https://www.linkedin.com/in/pkosiec",
+              // },
+              // {
+              //   label: "Twitter",
+              //   href: "https://twitter.com/pkosiec",
+              // },
+            ],
+          },
+          {
+            title: "Discover",
+            items: [
+              {
+                label: "About me",
+                to: "/",
+              },
+              // {
+              //   label: "Projects",
+              //   to: "/projects",
+              // },
+              // {
+              //   label: "Talks",
+              //   to: "/talks",
+              // },
+            ],
+          },
+          {
+            title: "Blog feed",
+            items: [
+              // {
+              //   label: "RSS",
+              //   to: "pathname:///blog/rss.xml",
+              // },
+              // {
+              //   label: "Atom",
+              //   to: "pathname:///blog/atom.xml",
+              // },
+              {
+                label: "JSON",
+                to: "pathname:///blog/feed.json",
+              },
+            ],
+          },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} tongque.`,
+        copyright: `Copyright © 2022-${new Date().getFullYear()} Tong Que.`,
       },
       prism: {
         theme: prismThemes.github,
