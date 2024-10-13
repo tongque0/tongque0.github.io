@@ -1,0 +1,6 @@
+@media (max-width: 996px) {
+  /* 在这里添加需要在小屏幕上应用的样式 */
+  .example-class {
+    color: red;
+  }
+}

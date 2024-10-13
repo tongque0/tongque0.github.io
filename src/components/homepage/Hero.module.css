@@ -1,0 +1,46 @@
+.heroBanner {
+    padding: 10rem 0 11rem;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+    margin-bottom: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  /* 替换 @include small-size 为标准的 CSS 媒体查询 */
+  @media (max-width: 600px) {
+    .heroBanner {
+      padding: 4rem 2rem;
+    }
+  }
+
+  .title {
+    font-size: 4rem;
+    text-shadow: 3px 0px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 600px) {
+    .title {
+      font-size: 2rem;
+    }
+  }
+
+  .subtitle {
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .subtitle {
+      font-size: 1.2rem;
+    }
+  }
+
+  .highlighted {
+    background: linear-gradient(to left, #0054ad 0%, #b8fb3c 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
