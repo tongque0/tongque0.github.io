@@ -6,7 +6,7 @@
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tongque0.github.io/blog"/>
     <subtitle>tongque Blog</subtitle>
-    <icon>https://tongque0.github.io/img/favicon.ico</icon>
+    <icon>https://tongque0.github.io/img/logo.jpg</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>https://tongque0.github.io/blog/welcome</id>
