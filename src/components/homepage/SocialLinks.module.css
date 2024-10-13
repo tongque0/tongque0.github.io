@@ -4,19 +4,19 @@
   padding: 2rem 0 4rem;
 }
 
-.socialLinks {
-  @media (max-width: 600px) {
-    & > div:nth-child(odd) {
-      padding-right: calc(var(--ifm-spacing-horizontal) / 2);
-    }
-    & > div:nth-child(even) {
-      padding-left: calc(var(--ifm-spacing-horizontal) / 2);
-    }
+/* 媒体查询中的嵌套需要展开 */
+@media (max-width: 600px) {
+  .socialLinks > div:nth-child(odd) {
+    padding-right: calc(var(--ifm-spacing-horizontal) / 2);
+  }
+  .socialLinks > div:nth-child(even) {
+    padding-left: calc(var(--ifm-spacing-horizontal) / 2);
   }
 }
 
-.col {
-  @media (max-width: 600px) {
+/* 同样展开 col 中的嵌套 */
+@media (max-width: 600px) {
+  .col {
     --ifm-col-width: 50%;
     margin-top: var(--ifm-spacing-vertical);
   }
@@ -26,17 +26,18 @@
   width: 100%;
   border-color: var(--ifm-color-emphasis-200);
   padding: 1rem 0;
+}
 
-  &--active,
-  &:active,
-  &:hover,
-  &:focus {
-    .btnText {
-      color: var(--ifm-font-color-base-inverse);
-    }
-    .btnIcon {
-      fill: var(--ifm-font-color-base-inverse);
-    }
+/* 将 &--active 等伪类选择器展开为完整选择器 */
+.btn--active,
+.btn:active,
+.btn:hover,
+.btn:focus {
+  .btnText {
+    color: var(--ifm-font-color-base-inverse);
+  }
+  .btnIcon {
+    fill: var(--ifm-font-color-base-inverse);
   }
 }
 
