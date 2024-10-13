@@ -54,7 +54,7 @@ export const SocialLinks = ({ data }) => {
 
   return (
     <div style={styles.socialContainer}>
-      <h2>Social media</h2>
+      <h2>Social TechStack</h2>
       <div className={clsx("row")}>
         {socialLinksComponents}
       </div>
