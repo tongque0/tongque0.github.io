@@ -61,17 +61,6 @@ const config = {
     ],
   ],
   plugins: [
-    // 插件配置部分
-    [
-      "@docusaurus/plugin-ideal-image",
-      {
-        quality: 70,
-        max: 1030, // 最大宽度
-        min: 640,  // 最小宽度
-        steps: 2,  // 生成不同分辨率图片的步数
-        disableInDev: false, // 在开发环境中禁用该插件
-      },
-    ],
     // 你可以继续添加其他插件
   ],
   themeConfig:
