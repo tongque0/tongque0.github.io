@@ -27,7 +27,7 @@ const socialLinks = [
     ),
   },
   {
-    name: "GitHub",
+    name: "GitHub1",
     url: "https://github.com/pkosiec",
     svg: (
       <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,7 @@ const socialLinks = [
     ),
   },
   {
-    name: "GitHub",
+    name: "GitHub2",
     url: "https://github.com/pkosiec",
     svg: (
       <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,7 @@ const socialLinks = [
     ),
   },
   {
-    name: "GitHub",
+    name: "GitHub3",
     url: "https://github.com/pkosiec",
     svg: (
       <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +57,7 @@ const socialLinks = [
     ),
   },
   {
-    name: "GitHub",
+    name: "GitHub4",
     url: "https://github.com/pkosiec",
     svg: (
       <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
