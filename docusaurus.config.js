@@ -73,18 +73,9 @@ const config = {
           src: 'img/logo.jpg',
         },
         items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutorial',
-          },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/tongque0',
-            label: 'GitHub',
-            position: 'right',
-          },
+          { to: "/blog", label: "Blog", position: "left" },
+          { to: "/projects", label: "Projects", position: "left" },
+          { to: "/talks", label: "Talks", position: "left" },
         ],
       },
       footer: {
