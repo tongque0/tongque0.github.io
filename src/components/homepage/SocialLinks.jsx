@@ -1,26 +1,61 @@
 import clsx from "clsx";
 import React from "react";
 
-import styles from "./SocialLinks.module.css";
+// 内联样式
+const styles = {
+  socialContainer: {
+    padding: "2rem 0 4rem",
+  },
+  socialLinksOdd: {
+    paddingRight: "calc(var(--ifm-spacing-horizontal) / 2)",
+  },
+  socialLinksEven: {
+    paddingLeft: "calc(var(--ifm-spacing-horizontal) / 2)",
+  },
+  col: {
+    "--ifm-col-width": "50%",
+    marginTop: "var(--ifm-spacing-vertical)",
+  },
+  btn: {
+    width: "100%",
+    borderColor: "var(--ifm-color-emphasis-200)",
+    padding: "1rem 0",
+  },
+  btnActive: {
+    color: "var(--ifm-font-color-base-inverse)",
+    fill: "var(--ifm-font-color-base-inverse)",
+  },
+  btnIcon: {
+    display: "block",
+    width: "1.5rem",
+    padding: "0.5rem 0",
+    margin: "0 auto",
+    fill: "var(--ifm-button-color)",
+  },
+  btnText: {
+    color: "var(--ifm-font-color-base)",
+  },
+};
 
 export const SocialLinks = ({ data }) => {
   const socialLinksComponents = data.map(({ name, url, svg }) => (
-    <div className={clsx("col", styles.col)} key={name}>
+    <div className={clsx("col")} style={styles.col} key={name}>
       <a
         href={url}
         target="_blank"
-        className={clsx("button button--outline button--primary", styles.btn)}
+        className={clsx("button button--outline button--primary")}
+        style={styles.btn}
       >
-        <span className={styles.btnIcon}>{svg}</span>
-        <span className={styles.btnText}>{name}</span>
+        <span style={styles.btnIcon}>{svg}</span>
+        <span style={styles.btnText}>{name}</span>
       </a>
     </div>
   ));
 
   return (
-    <div className={styles.socialContainer}>
+    <div style={styles.socialContainer}>
       <h2>Social media</h2>
-      <div className={clsx("row", styles.socialLinks)}>
+      <div className={clsx("row")}>
         {socialLinksComponents}
       </div>
     </div>
