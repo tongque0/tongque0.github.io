@@ -74,8 +74,8 @@ const config = {
         },
         items: [
           { to: "/blog", label: "Blog", position: "left" },
-          { to: "/projects", label: "Projects", position: "left" },
-          { to: "/talks", label: "Talks", position: "left" },
+          // { to: "/projects", label: "Projects", position: "left" },
+          // { to: "/talks", label: "Talks", position: "left" },
         ],
       },
       footer: {
