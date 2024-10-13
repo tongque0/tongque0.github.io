@@ -1,0 +1,49 @@
+name: 部署到 GitHub Pages
+
+on:
+  push:
+    branches:
+      - source
+    # 触发条件：当向 source 分支推送时触发构建和部署
+
+jobs:
+  build:
+    name: 构建 Docusaurus
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 获取整个历史记录
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18 # 使用 Node.js 18 版本
+          cache: yarn # 缓存 yarn 依赖，加快构建速度
+
+      - name: 安装依赖
+        run: yarn install --frozen-lockfile # 确保依赖安装是根据 lockfile
+      - name: 构建网站
+        run: yarn build # 运行 Docusaurus 的构建命令
+
+      - name: 上传构建制品
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build # 构建的输出目录
+
+  deploy:
+    name: 部署到 GitHub Pages
+    needs: build # 确保 build 任务完成后再进行部署
+
+    permissions:
+      pages: write # 允许写入到 GitHub Pages
+      id-token: write # 允许身份验证，以确保安全性
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: 部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # 使用最新版本的部署插件
+        publish_branch: main          # 部署到 main 分支
