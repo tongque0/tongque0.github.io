@@ -88,7 +88,7 @@ const config = {
             items: [
               {
                 label: "Email me",
-                href: "mailto:pawel@kosiec.dev",
+                href: "mailto:tongque00@gamil.com",
               },
               // {
               //   label: "github",

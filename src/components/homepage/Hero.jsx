@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 const styles = {
   heroBanner: {
@@ -38,30 +39,36 @@ const styles = {
 };
 
 export const Hero = () => {
-  const isSmallScreen = window.innerWidth <= 600;
-
   return (
-    <header
-      className={clsx("hero hero--primary")}
-      style={isSmallScreen ? styles.heroBannerSmall : styles.heroBanner}
-    >
-      <div className="container">
-        <h1
-          className={clsx("hero__title")}
-          style={isSmallScreen ? styles.titleSmall : styles.title}
-        >
-          Hi. I'm <span style={styles.highlighted}>Tong Que</span>,
-          <br />
-          Full-stack Cloud Developer.
-        </h1>
-        <p
-          className={clsx("hero__subtitle")}
-          style={isSmallScreen ? styles.subtitleSmall : styles.subtitle}
-        >
-          对个人成长和技术趋势感兴趣的软件工程师。
-          <br /> 云原生和开源爱好者。
-        </p>
-      </div>
-    </header>
+    <BrowserOnly>
+      {() => {
+        const isSmallScreen = window.innerWidth <= 600;
+
+        return (
+          <header
+            className={clsx("hero hero--primary")}
+            style={isSmallScreen ? styles.heroBannerSmall : styles.heroBanner}
+          >
+            <div className="container">
+              <h1
+                className={clsx("hero__title")}
+                style={isSmallScreen ? styles.titleSmall : styles.title}
+              >
+                Hi. I'm <span style={styles.highlighted}>Tong Que</span>,
+                <br />
+                Full-stack Cloud Developer.
+              </h1>
+              <p
+                className={clsx("hero__subtitle")}
+                style={isSmallScreen ? styles.subtitleSmall : styles.subtitle}
+              >
+                对个人成长和技术趋势感兴趣的软件工程师。
+                <br /> 云原生和开源爱好者。
+              </p>
+            </div>
+          </header>
+        );
+      }}
+    </BrowserOnly>
   );
 };
