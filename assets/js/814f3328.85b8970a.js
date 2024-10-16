@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktongque_0_github_io=self.webpackChunktongque_0_github_io||[]).push([[472],{5513:t=>{t.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"First Blog","permalink":"/blog/2024/start","unlisted":false,"date":"2024-10-16T04:10:52.000Z"}]}')}}]);
