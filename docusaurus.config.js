@@ -4,11 +4,11 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'tongque',
+  title: '同阙的个人博客',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/logo.jpg',
 
@@ -69,8 +69,8 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'tongque',
-        logo: {
+        title: 'tongque',   // 左上角标题
+        logo: {             // 左上角logo
           alt: 'avatar',
           src: 'img/logo.jpg',
         },
@@ -90,14 +90,14 @@ const config = {
                 label: "Email me",
                 href: "mailto:tongque00@gamil.com",
               },
-              // {
-              //   label: "github",
-              //   href: "https://www.linkedin.com/in/pkosiec",
-              // },
-              // {
-              //   label: "Twitter",
-              //   href: "https://twitter.com/pkosiec",
-              // },
+              {
+                label: "WeChat",
+                to: "/",
+              },
+              {
+                label: "QQGroup",
+                to: "/",
+              },
             ],
           },
           {
@@ -116,9 +116,9 @@ const config = {
               //   to: "/talks",
               // },
             ],
-          },
-          {
-            title: "Blog feed",
+            },
+            {
+            title: "Friend Links",
             items: [
               // {
               //   label: "RSS",
@@ -129,8 +129,8 @@ const config = {
               //   to: "pathname:///blog/atom.xml",
               // },
               {
-                label: "JSON",
-                to: "pathname:///blog/feed.json",
+                label: "tongque",
+                to: "https://tongque0.github.io/",
               },
             ],
           },
