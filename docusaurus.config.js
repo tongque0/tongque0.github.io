@@ -90,14 +90,14 @@ const config = {
                 label: "Email me",
                 href: "mailto:tongque00@gamil.com",
               },
-              {
-                label: "WeChat",
-                to: "/",
-              },
-              {
-                label: "QQGroup",
-                to: "/",
-              },
+              // {
+              //   label: "WeChat",
+              //   to: "/",
+              // },
+              // {
+              //   label: "QQGroup",
+              //   to: "/",
+              // },
             ],
           },
           {
