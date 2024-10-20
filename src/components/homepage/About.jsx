@@ -9,15 +9,12 @@ const styles = {
   avatarContainerSmall: {
     margin: "2rem 0 0",
   },
-  avatar: {
-    display: "block",
-    maxWidth: "310px",
-    maxHeight: "310px",
-    margin: "0 auto",
-  },
   avatarImg: {
+    display: "block",
+    maxWidth: "288px",
+    maxHeight: "288px",
+    margin: "0 auto",
     borderRadius: "999px",
-    maxHeight: "310px",
   },
 };
 
@@ -28,9 +25,12 @@ export const AboutMe = ({  descriptionComponent }) => {
         <div className="row">
           <div className="col col--6">{descriptionComponent}</div>
           <div className={clsx("col col--5", styles.avatarContainer)}>
-            <div className={styles.avatar}>
-
-            </div>
+            <img
+              src="/img/gopher.jpg"
+              alt="avatar"
+              style={styles.avatarImg}
+              className="avatar"
+            />
           </div>
         </div>
       </div>
