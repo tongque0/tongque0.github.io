@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="rss.xsl"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>同阙的个人博客 Blog</title>
+        <link>https://tongque0.github.io/blog</link>
+        <description>同阙的个人博客 Blog</description>
+        <lastBuildDate>Fri, 13 Dec 2024 14:00:37 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Go start]]></title>
+            <link>https://tongque0.github.io/blog/2024/Go安装</link>
+            <guid>https://tongque0.github.io/blog/2024/Go安装</guid>
+            <pubDate>Fri, 13 Dec 2024 14:00:37 GMT</pubDate>
+            <description><![CDATA[我的第一篇博客，让你拥有一样的博客]]></description>
+            <content:encoded><![CDATA[<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>一文学会golang安装及其相关知识</p></div></div>
+<p>“安装 Go 不是很简单吗？直接去 <a href="https://go.dev/" target="_blank" rel="noopener noreferrer">Go 官网</a> 下载就行了啊。”</p>
+<p>“唉，我怎么就下载不了 Go 包？换了代理也不行，怎么回事？”</p>
+<p>这是我一位刚开始学习 Golang 的朋友在安装过程中遇到的问题。虽然现在 Go 的安装已经变得相当简单，但是依旧会存在一些老gopher不在意，新gopher难处理的小坑。</p>
+<p>（<strong>本文将帮助你认识并回顾 Golang 安装过程中的相关知识（本文更新时golang最新版为1.23.3）。</strong> ）</p>
+<h1>安装</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="官网安装">官网安装<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#%E5%AE%98%E7%BD%91%E5%AE%89%E8%A3%85" class="hash-link" aria-label="Direct link to 官网安装" title="Direct link to 官网安装">​</a></h2>
+<p>前往 <a href="https://go.dev/" target="_blank" rel="noopener noreferrer">Go 官网</a> 下载并安装 Go，建议选择默认安装选项，一键点击下一步，安装程序会自动为你完成大部分配置。</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="代理更换推荐">代理更换（推荐）<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#%E4%BB%A3%E7%90%86%E6%9B%B4%E6%8D%A2%E6%8E%A8%E8%8D%90" class="hash-link" aria-label="Direct link to 代理更换（推荐）" title="Direct link to 代理更换（推荐）">​</a></h2>
+<p>在 Go 1.17 之前，切换代理通常需要手动通过 shell 修改环境变量，这种方式有时可能会出现一些问题。从 Go 1.17 版本开始，Go 引入了 <code>go env -w</code> 命令，使用 Golang 自带的命令可以更方便、准确地修改 Go 的环境配置。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="修改代理命令示例">修改代理命令示例：<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%90%86%E5%91%BD%E4%BB%A4%E7%A4%BA%E4%BE%8B" class="hash-link" aria-label="Direct link to 修改代理命令示例：" title="Direct link to 修改代理命令示例：">​</a></h3>
+<p>go env -w GOPROXY=<a href="https://goproxy.cn,https//mirrors.cloud.tencent.com/go/,https://mirrors.aliyun.com/goproxy/,direct" target="_blank" rel="noopener noreferrer">https://goproxy.cn,https://mirrors.cloud.tencent.com/go/,https://mirrors.aliyun.com/goproxy/,direct</a></p>
+<p>通过这种方式，你可以快速更改 Go 的代理设置，确保能够顺利下载 Go 包。</p>
+<h1>相关知识</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="golang-常用环境变量">Golang 常用环境变量<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#golang-%E5%B8%B8%E7%94%A8%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F" class="hash-link" aria-label="Direct link to Golang 常用环境变量" title="Direct link to Golang 常用环境变量">​</a></h2>
+<table><thead><tr><th>环境变量</th><th>说明</th><th>默认值</th><th>示例</th></tr></thead><tbody><tr><td><code>GOPROXY</code></td><td>Go 模块代理，指定下载模块的代理源</td><td><code>https://proxy.golang.org</code></td><td><code>go env -w GOPROXY=https://goproxy.cn</code></td></tr><tr><td><code>GO111MODULE</code></td><td>控制 Go 模块支持的启用状态</td><td><code>auto</code></td><td><code>go env -w GO111MODULE=on</code></td></tr><tr><td><code>GOPATH</code></td><td>Go 工作空间的根目录</td><td><code>$HOME/go</code></td><td><code>go env -w GOPATH=$HOME/go</code></td></tr><tr><td><code>GOROOT</code></td><td>Go 安装目录</td><td>Go 安装目录</td><td><code>go env -w GOROOT=/usr/local/go</code></td></tr><tr><td><code>GOCACHE</code></td><td>Go 编译缓存目录</td><td><code>$HOME/.cache/go-build</code></td><td><code>go env -w GOCACHE=$HOME/.cache/go-build</code></td></tr><tr><td><code>GOMODCACHE</code></td><td>Go 模块缓存目录</td><td><code>$GOPATH/pkg/mod</code></td><td><code>go env -w GOMODCACHE=$HOME/go/pkg/mod</code></td></tr><tr><td><code>GOOS</code></td><td>目标操作系统，用于交叉编译</td><td>当前操作系统</td><td><code>go env -w GOOS=linux</code></td></tr><tr><td><code>GOARCH</code></td><td>目标架构，用于交叉编译</td><td>当前架构</td><td><code>go env -w GOARCH=amd64</code></td></tr><tr><td><code>GOTMPDIR</code></td><td>临时目录，用于存放编译过程中的临时文件</td><td><code>/tmp</code></td><td><code>go env -w GOTMPDIR=$HOME/go_tmp</code></td></tr><tr><td><code>GOMODULECACHE</code></td><td>存储已下载模块的缓存目录</td><td><code>$GOPATH/pkg/mod</code></td><td><code>go env -w GOMODULECACHE=$HOME/go/pkg/mod</code></td></tr><tr><td><code>GOPRIVATE</code></td><td>设置私有模块的地址</td><td>无</td><td><code>go env -w GOPRIVATE=example.com/private</code></td></tr><tr><td><code>GOTRACEBACK</code></td><td>Go 错误追踪的详细程度</td><td><code>none</code></td><td><code>go env -w GOTRACEBACK=full</code></td></tr><tr><td><code>GOGC</code></td><td>控制 Go 垃圾回收的频率</td><td><code>100</code></td><td><code>go env -w GOGC=200</code></td></tr><tr><td><code>GOSUMDB</code></td><td>Go 模块的校验数据库</td><td><code>sum.golang.org</code></td><td><code>go env -w GOSUMDB=sum.golang.org</code></td></tr><tr><td><code>GOFLAGS</code></td><td>Go 命令的默认标志</td><td>无</td><td><code>go env -w GOFLAGS="-mod=vendor"</code></td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="修改环境变量的方法">修改环境变量的方法<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E6%B3%95" class="hash-link" aria-label="Direct link to 修改环境变量的方法" title="Direct link to 修改环境变量的方法">​</a></h3>
+<p>推荐使用带参数的 <code>go env</code> 命令来修改 Go 的环境变量。具体的命令有：</p>
+<ul>
+<li><strong><code>go env -w</code></strong>：用来设置或修改环境变量。</li>
+<li><strong><code>go env -u</code></strong>：用来恢复到默认值。</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="示例">示例：<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#%E7%A4%BA%E4%BE%8B" class="hash-link" aria-label="Direct link to 示例：" title="Direct link to 示例：">​</a></h4>
+<ol>
+<li>
+<p><strong>设置 <code>GOPROXY</code> 代理</strong>：</p>
+<p>go env -w GOPROXY=<a href="https://goproxy.cn/" target="_blank" rel="noopener noreferrer">https://goproxy.cn</a></p>
+</li>
+<li>
+<p><strong>恢复 <code>GOPROXY</code> 到默认值</strong>：</p>
+<p>go env -u GOPROXY</p>
+</li>
+</ol>
+<p>通过使用 <code>go env -w</code> 和 <code>go env -u</code>，可以方便地设置或重置 Go 的环境变量，这些设置会持久化生效，而不需要每次重新配置。</p>
+<h1>Go常用命令</h1>
+<table><thead><tr><th>命令</th><th>说明</th><th>示例</th></tr></thead><tbody><tr><td><code>go version</code></td><td>显示当前安装的 Go 版本</td><td><code>go version</code></td></tr><tr><td><code>go run</code></td><td>编译并运行 Go 源文件</td><td><code>go run main.go</code></td></tr><tr><td><code>go build</code></td><td>编译 Go 源文件，生成可执行文件</td><td><code>go build -o myapp main.go</code></td></tr><tr><td><code>go test</code></td><td>运行 Go 项目的测试</td><td><code>go test -v</code></td></tr><tr><td><code>go mod</code></td><td>管理 Go 模块和依赖</td><td><code>go mod tidy</code></td></tr><tr><td><code>go get</code></td><td>下载并安装远程 Go 包及其依赖</td><td><code>go get github.com/gin-gonic/gin</code></td></tr><tr><td><code>go install</code></td><td>编译并安装 Go 程序，生成可执行文件并放入 <code>$GOBIN</code> 目录</td><td><code>go install myapp</code></td></tr><tr><td><code>go fmt</code></td><td>格式化 Go 源代码，确保代码风格一致</td><td><code>go fmt main.go</code></td></tr><tr><td><code>go env</code></td><td>显示当前 Go 环境变量配置</td><td><code>go env</code></td></tr><tr><td><code>go doc</code></td><td>查看 Go 包或函数的文档</td><td><code>go doc fmt.Println</code></td></tr><tr><td><code>go clean</code></td><td>清理构建过程中产生的临时文件</td><td><code>go clean -i</code></td></tr><tr><td><code>go list</code></td><td>列出 Go 包的信息</td><td><code>go list -m all</code></td></tr><tr><td><code>go mod init</code></td><td>初始化 Go 模块，生成 <code>go.mod</code> 文件</td><td><code>go mod init mymodule</code></td></tr><tr><td><code>go mod vendor</code></td><td>将所有依赖包复制到 <code>vendor</code> 目录</td><td><code>go mod vendor</code></td></tr><tr><td><code>go run</code></td><td>编译并执行指定的 Go 文件，快速运行脚本</td><td><code>go run main.go</code></td></tr><tr><td><code>go version</code></td><td>查看 Go 版本信息</td><td><code>go version</code></td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="go-install-命令"><code>go install</code> 命令<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#go-install-%E5%91%BD%E4%BB%A4" class="hash-link" aria-label="Direct link to go-install-命令" title="Direct link to go-install-命令">​</a></h3>
+<ul>
+<li>
+<p><strong>功能</strong>：编译指定的 Go 文件并将生成的可执行文件安装到 <code>$GOBIN</code> 目录。如果没有设置 <code>$GOBIN</code>，默认会安装到 <code>$GOPATH/bin</code>。</p>
+</li>
+<li>
+<p><strong>适用场景</strong>：通常用于安装并运行单个 Go 程序，或者将开发的工具安装到全局路径以便在<strong>终端中直接调用</strong>。</p>
+</li>
+<li>
+<p><strong>使用效果</strong>：</p>
+<p><img decoding="async" loading="lazy" src="https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/64cfc679f41c46bb8742f247a79b8bfb~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZCM6ZiZ:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTc4NTY5MzEzNTMyNTM1In0%3D&amp;rk3s=f64ab15b&amp;x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&amp;x-orig-expires=1733748885&amp;x-orig-sign=0gU0hJCZ1SfQVWlXab%2FHAMc4wVQ%3D" alt="image.png" class="img_ev3q"></p>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="示例-1安装本地包">示例 1：安装本地包<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#%E7%A4%BA%E4%BE%8B-1%E5%AE%89%E8%A3%85%E6%9C%AC%E5%9C%B0%E5%8C%85" class="hash-link" aria-label="Direct link to 示例 1：安装本地包" title="Direct link to 示例 1：安装本地包">​</a></h4>
+<p>假设你有一个本地的 Go 程序，包含一个 <code>main.go</code> 文件。你可以通过 <code>go install</code> 将它编译并安装到 <code>$GOBIN</code> 或 <code>$GOPATH/bin</code> 目录下。</p>
+<p>go install ./myapp</p>
+<ul>
+<li>该命令会编译 <code>myapp</code> 包，并将生成的可执行文件放到 <code>$GOBIN</code> 或 <code>$GOPATH/bin</code> 目录。你可以通过命令行直接运行该可执行文件。</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="示例-2安装远程包">示例 2：安装远程包<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#%E7%A4%BA%E4%BE%8B-2%E5%AE%89%E8%A3%85%E8%BF%9C%E7%A8%8B%E5%8C%85" class="hash-link" aria-label="Direct link to 示例 2：安装远程包" title="Direct link to 示例 2：安装远程包">​</a></h4>
+<p>如果你想安装一个远程的 Go 包（例如，GitHub 上的 Go 工具），可以使用 <code>go install</code> 命令指定该包的远程路径。</p>
+<p>go install github.com/hhatto/gocloc/cmd/gocloc@latest</p>
+<ul>
+<li>这个命令会从 <code>github.com/hhatto/gocloc/cmd/gocloc@latest</code> 下载最新版本的 Go 语言代码统计侗剧<code>gocloc</code>，然后将其安装到 <code>$GOBIN</code> 或 <code>$GOPATH/bin</code> 目录中。</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="注意事项">注意事项<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" class="hash-link" aria-label="Direct link to 注意事项" title="Direct link to 注意事项">​</a></h4>
+<p><strong>Go 1.17 及更高版本</strong>：从 Go 1.17 开始，<code>go install</code> 需要指定包的版本（例如 <code>@latest</code> 或 <code>@vX.X.X</code>）。在 Go 1.16 之前，<code>go install</code> 默认会安装当前版本。</p>
+<p>是的，<strong><code>go get</code></strong> 和 <strong><code>go install</code></strong> 确实有很多重叠的功能，特别是在 Go 1.17 及以后版本。尽管它们的核心用途略有不同，但在大多数情况下，<strong><code>go install</code></strong> 已经可以替代 <strong><code>go get</code></strong> 来完成很多安装任务，尤其是安装可执行文件方面。</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="go-get-命令"><code>go get</code> 命令<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#go-get-%E5%91%BD%E4%BB%A4" class="hash-link" aria-label="Direct link to go-get-命令" title="Direct link to go-get-命令">​</a></h3>
+<p><strong>一句话总结：我不太用</strong></p>
+<ul>
+<li><strong><code>go get</code></strong> 和 <strong><code>go install</code></strong> 在 Go 1.17 以后有一定的重叠，尤其在安装可执行文件方面。</li>
+<li>但 <strong><code>go install</code></strong> 更加专注于安装可执行文件（尤其是安装工具）。</li>
+<li>如果你只需要安装或更新可执行文件，应该优先使用 <strong><code>go install</code></strong>。</li>
+<li><strong><code>go get</code></strong> 更加适用于管理依赖和更新 <code>go.mod</code> 文件。</li>
+</ul>
+<table><thead><tr><th>命令</th><th>功能描述</th><th>适用场景</th><th>重要区别</th></tr></thead><tbody><tr><td><strong><code>go get</code></strong></td><td>获取并安装依赖包，更新 <code>go.mod</code> 文件，下载模块。</td><td>获取远程模块依赖，更新项目的模块配置。</td><td><strong>不推荐用于安装可执行文件</strong>，主要用于依赖管理。</td></tr><tr><td><strong><code>go install</code></strong></td><td>编译并安装指定的 Go 可执行文件（主程序包）。</td><td>安装并编译单个 Go 程序/工具，安装到 <code>$GOBIN</code>。</td><td><strong>推荐用于安装可执行文件</strong>，从 Go 1.17 开始，安装可执行文件的首选方法。</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="go-mod-tidy-命令"><code>go mod tidy</code> 命令<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#go-mod-tidy-%E5%91%BD%E4%BB%A4" class="hash-link" aria-label="Direct link to go-mod-tidy-命令" title="Direct link to go-mod-tidy-命令">​</a></h3>
+<p><strong>一句话总结</strong>：<strong>代码跑不起来，先来一遍 <code>go mod tidy</code></strong>。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="功能">功能：<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#%E5%8A%9F%E8%83%BD" class="hash-link" aria-label="Direct link to 功能：" title="Direct link to 功能：">​</a></h4>
+<p><code>go mod tidy</code> 命令用于清理和整理 Go 模块的依赖，确保 <code>go.mod</code> 和 <code>go.sum</code> 文件只包含项目实际需要的依赖项，并移除那些未使用的依赖。它会自动修复 <code>go.mod</code> 文件，更新 <code>go.sum</code>，并移除不再需要的模块。</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="工作原理">工作原理：<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86" class="hash-link" aria-label="Direct link to 工作原理：" title="Direct link to 工作原理：">​</a></h4>
+<ul>
+<li><strong>移除未使用的模块</strong>：自动删除 <code>go.mod</code> 中声明，但代码中未实际使用的模块。</li>
+<li><strong>添加缺失的模块</strong>：如果 <code>go.mod</code> 文件中缺少某些实际使用的模块，<code>go mod tidy</code> 会自动添加这些模块。</li>
+<li><strong>同步 <code>go.sum</code></strong>：确保 <code>go.sum</code> 中只有当前 <code>go.mod</code> 文件所需要的依赖的哈希值，去除过期的哈希。</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="解决常见问题">解决常见问题：<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#%E8%A7%A3%E5%86%B3%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98" class="hash-link" aria-label="Direct link to 解决常见问题：" title="Direct link to 解决常见问题：">​</a></h4>
+<ul>
+<li><strong>无法找到依赖</strong>：如果你遇到错误提示某些依赖缺失，执行 <code>go mod tidy</code> 后会自动修复。</li>
+<li><strong>模块版本冲突</strong>：有时依赖版本冲突或者重复声明，执行 <code>go mod tidy</code> 可以帮助清理这些问题。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="go-run--命令"><code>go run .</code> 命令<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#go-run--%E5%91%BD%E4%BB%A4" class="hash-link" aria-label="Direct link to go-run--命令" title="Direct link to go-run--命令">​</a></h3>
+<p><strong>一句话总结：把你写的 Go 代码跑起来。</strong></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="使用方法">使用方法：<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" class="hash-link" aria-label="Direct link to 使用方法：" title="Direct link to 使用方法：">​</a></h4>
+<ol>
+<li>
+<p><strong>移动到项目入口文件所在目录</strong>，然后在终端运行：</p>
+<p>go run .</p>
+<p>其中，<code>"."</code> 代表当前目录，Go 会将当前目录下的所有 <code>.go</code> 文件编译并执行。如果你只有一个文件或多个文件都包含 <code>main</code> 函数，它们都会被一起执行。</p>
+</li>
+<li>
+<p><strong>指定文件运行</strong>： 如果你只想运行特定的 Go 文件，可以指定文件名：</p>
+<p>go run main.go</p>
+<p>这将只编译并执行 <code>main.go</code> 文件。</p>
+</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="为什么使用-go-run-">为什么使用 <code>go run .</code>：<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8-go-run-" class="hash-link" aria-label="Direct link to 为什么使用-go-run-" title="Direct link to 为什么使用-go-run-">​</a></h4>
+<ul>
+<li><strong>多个 <code>main</code> 包</strong>：在一些较大的项目中，你可能会有多个包含 <code>main</code> 函数的包，或者多个入口文件。通过 <code>go run .</code>，Go 会自动识别并运行当前目录下的所有 <code>.go</code> 文件，避免你忘记运行某个入口文件。</li>
+<li><strong>便于调试</strong>：使用 <code>go run .</code> 可以快速运行整个项目而不需要手动指定每个文件，适合快速开发和调试。</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="go-build-命令">go build 命令<a href="https://tongque0.github.io/blog/2024/Go%E5%AE%89%E8%A3%85#go-build-%E5%91%BD%E4%BB%A4" class="hash-link" aria-label="Direct link to go build 命令" title="Direct link to go build 命令">​</a></h3>
+<p><strong>一句话总结：编译你的 Go 程序，生成可执行文件。</strong></p>
+<p>新手不太用，留着以后再说。</p>]]></content:encoded>
+            <category>个人</category>
+        </item>
+        <item>
+            <title><![CDATA[Hello World]]></title>
+            <link>https://tongque0.github.io/blog/2024/Hello World</link>
+            <guid>https://tongque0.github.io/blog/2024/Hello World</guid>
+            <pubDate>Fri, 13 Dec 2024 14:00:37 GMT</pubDate>
+            <description><![CDATA[我的第一篇博客，让你拥有一样的博客]]></description>
+            <content:encoded><![CDATA[<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>你好，世界！</p></div></div>]]></content:encoded>
+            <category>个人</category>
+        </item>
+    </channel>
+</rss>
