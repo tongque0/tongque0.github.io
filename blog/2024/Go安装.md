@@ -2,7 +2,7 @@
 title: Go start
 authors: [tongque0]
 tags: [个人]
-description:
+description: golang安装及其相关知识
 ---
 :::tip
 一文学会golang安装及其相关知识
