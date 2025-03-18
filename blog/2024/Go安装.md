@@ -2,7 +2,7 @@
 title: Go start
 authors: [tongque0]
 tags: [个人]
-description: 我的第一篇博客，让你拥有一样的博客
+description:
 ---
 :::tip
 一文学会golang安装及其相关知识

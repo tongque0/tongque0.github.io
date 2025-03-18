@@ -75,9 +75,8 @@ const config = {
           src: 'img/logo.jpg',
         },
         items: [
-          { to: "/blog", label: "Blog", position: "left" },
-          // { to: "/projects", label: "Projects", position: "left" },
-          // { to: "/talks", label: "Talks", position: "left" },
+          { to: "/blog", label: "Posts", position: "left" },
+          { to: "/projects", label: "Projects", position: "left" },
         ],
       },
       footer: {
@@ -90,14 +89,6 @@ const config = {
                 label: "Email me",
                 href: "mailto:tongque00@gamil.com",
               },
-              // {
-              //   label: "WeChat",
-              //   to: "/",
-              // },
-              // {
-              //   label: "QQGroup",
-              //   to: "/",
-              // },
             ],
           },
           {
@@ -107,27 +98,11 @@ const config = {
                 label: "About me",
                 to: "/",
               },
-              // {
-              //   label: "Projects",
-              //   to: "/projects",
-              // },
-              // {
-              //   label: "Talks",
-              //   to: "/talks",
-              // },
             ],
             },
             {
             title: "Friend Links",
             items: [
-              // {
-              //   label: "RSS",
-              //   to: "pathname:///blog/rss.xml",
-              // },
-              // {
-              //   label: "Atom",
-              //   to: "pathname:///blog/atom.xml",
-              // },
               {
                 label: "tongque",
                 to: "https://tongque0.github.io/",
