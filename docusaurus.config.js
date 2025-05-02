@@ -75,7 +75,8 @@ const config = {
           src: 'img/logo.jpg',
         },
         items: [
-          { to: "/blog", label: "Posts", position: "left" },
+          { to: "/blog", label: "文章", position: "left" },
+          { to: "/life", label: "生活", position: "left" },
           // { to: "/projects", label: "Projects", position: "left" },
         ],
       },
@@ -104,8 +105,8 @@ const config = {
             title: "Friend Links",
             items: [
               {
-                label: "tongque",
-                to: "https://tongque0.github.io/",
+                label: "OriginYu",
+                to: "https://originyu.dpdns.org/",
               },
             ],
           },

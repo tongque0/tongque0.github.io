@@ -3,6 +3,8 @@ title: Go start
 authors: [tongque0]
 tags: [个人]
 description: golang安装及其相关知识
+date: 2024-05-01
+hide_table_of_contents: false
 ---
 :::tip
 一文学会golang安装及其相关知识
