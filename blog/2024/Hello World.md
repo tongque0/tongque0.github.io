@@ -14,8 +14,6 @@ date: 2024-01-01
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# 用各种语言说 Hello, World!
-
 <Tabs>
   <TabItem value="go" label="Go">
 
