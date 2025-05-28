@@ -1,96 +1,51 @@
+import { useEffect, useState } from "react";
 import { PhotoWall } from "../components/life/PhotoWall";
 import Head from "@docusaurus/Head";
 
+function randomBetween(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+function generateWidthHeight() {
+  const baseHeight = randomBetween(200, 500); // 高度 200~280
+  const ratio = randomBetween(1.5,0.7);      // 宽高比 0.7~1.5
+  const width = baseHeight * ratio;
+  return { width: Math.round(width), height: Math.round(baseHeight) };
+}
+
 export default function Life() {
-  const myPhotos = [
-    {
-      src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e", // 海滩日落
-      caption: "Summer vacation in Bali",
-      featured: true,
-    },
-    {
-      src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470", // 山区徒步
-      caption: "Mountain hiking trip",
-      height: 200,
-    },
-    {
-      src: "https://images.unsplash.com/photo-1499346030926-9a72daac6c63", // 夜晚城市
-      caption: "City skyline at night",
-      height: 250,
-    },
-    {
-      src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e", // 海滩日落
-      caption: "Summer vacation in Bali",
-      height: 300,
-      featured: true,
-    },
-    {
-      src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470", // 山区徒步
-      caption: "Mountain hiking trip",
-      height: 200,
-    },
-    {
-      src: "https://images.unsplash.com/photo-1499346030926-9a72daac6c63", // 夜晚城市
-      caption: "City skyline at night",
-      height: 250,
-    },
-    {
-      src: "https://images.unsplash.com/photo-1501973801540-537f08ccae7b", // 海滩日落
-      caption: "Beach sunset",
-      height: 180,
-    },
-    {
-      src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e", // 海滩日落
-      caption: "Summer vacation in Bali",
-      height: 300,
-      featured: true,
-    },
-    {
-      src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470", // 山区徒步
-      caption: "Mountain hiking trip",
-      height: 200,
-    },
-    {
-      src: "https://images.unsplash.com/photo-1499346030926-9a72daac6c63", // 夜晚城市
-      caption: "City skyline at night",
-      height: 250,
-    },
-    {
-      src: "https://images.unsplash.com/photo-1501973801540-537f08ccae7b", // 海滩日落
-      caption: "Beach sunset",
-      height: 180,
-    },
-    {
-      src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e", // 海滩日落
-      caption: "Summer vacation in Bali",
-      height: 300,
-      featured: true,
-    },
-    {
-      src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470", // 山区徒步
-      caption: "Mountain hiking trip",
-      height: 200,
-    },
-    {
-      src: "https://images.unsplash.com/photo-1499346030926-9a72daac6c63", // 夜晚城市
-      caption: "City skyline at night",
-      height: 250,
-    },
-    {
-      src: "https://images.unsplash.com/photo-1501973801540-537f08ccae7b", // 海滩日落
-      caption: "Beach sunset",
-    },
-  ];
-  const handleBack = () => {
-    window.location.href = "/"; // 直接跳转到首页
-  };
+  const [photos, setPhotos] = useState([]);
+
+  useEffect(() => {
+    async function fetchPhotos() {
+      try {
+        const res = await fetch("https://tongque-blog-image.2863528786.workers.dev/");
+        const urls = await res.json();
+
+        const photosData = urls.map((url, index) => {
+          const { width, height } = generateWidthHeight();
+          return {
+            src: url,
+            width,
+            height,
+          };
+        });
+
+        setPhotos(photosData);
+      } catch (error) {
+        console.error("获取图片列表失败", error);
+      }
+    }
+    fetchPhotos();
+  }, []);
+
   return (
     <main>
       <Head>
         <script src="https://cdn.tailwindcss.com"></script>
       </Head>
       <div className="container padding-vert">
-        <PhotoWall photos={myPhotos} title="Go Back" />
+        <PhotoWall photos={photos} title="Go Back" />
       </div>
     </main>
   );
