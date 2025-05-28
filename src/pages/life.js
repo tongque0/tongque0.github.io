@@ -7,37 +7,44 @@ function randomBetween(min, max) {
 }
 
 function generateWidthHeight() {
-  const baseHeight = randomBetween(200, 500); // 高度 200~280
-  const ratio = randomBetween(1.5,0.7);      // 宽高比 0.7~1.5
-  const width = baseHeight * ratio;
-  return { width: Math.round(width), height: Math.round(baseHeight) };
+  const width = randomBetween(200, 600);  // 宽度 200~800
+  const height = randomBetween(200, 800); // 高度 200~600
+  return { width: Math.round(width), height: Math.round(height) };
 }
+
 
 export default function Life() {
   const [photos, setPhotos] = useState([]);
 
-  useEffect(() => {
-    async function fetchPhotos() {
-      try {
-        const res = await fetch("https://tongque-blog-image.2863528786.workers.dev/");
-        const urls = await res.json();
+useEffect(() => {
+  async function fetchPhotos() {
+    try {
+      const res = await fetch("https://tongque-blog-image.2863528786.workers.dev/");
+      const urls = await res.json();
 
-        const photosData = urls.map((url, index) => {
-          const { width, height } = generateWidthHeight();
-          return {
-            src: url,
-            width,
-            height,
-          };
-        });
-
-        setPhotos(photosData);
-      } catch (error) {
-        console.error("获取图片列表失败", error);
+      // Fisher-Yates 洗牌算法打乱数组
+      for (let i = urls.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [urls[i], urls[j]] = [urls[j], urls[i]];
       }
+
+      const photosData = urls.map((url, index) => {
+        const { width, height } = generateWidthHeight();
+        return {
+          src: url,
+          width,
+          height,
+        };
+      });
+
+      setPhotos(photosData);
+    } catch (error) {
+      console.error("获取图片列表失败", error);
     }
-    fetchPhotos();
-  }, []);
+  }
+  fetchPhotos();
+}, []);
+
 
   return (
     <main>
