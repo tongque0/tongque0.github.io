@@ -19,7 +19,7 @@ export default function Life() {
 useEffect(() => {
   async function fetchPhotos() {
     try {
-      const res = await fetch("https://tongque-blog-image.2863528786.workers.dev/");
+      const res = await fetch("https://tongque-blog-image.ocybers.com/");
       const urls = await res.json();
 
       // Fisher-Yates 洗牌算法打乱数组
